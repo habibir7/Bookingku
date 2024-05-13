@@ -2,10 +2,10 @@
 import { useRouter } from "next/navigation";
 
 export default function register(){
-    const router = useRouter();
+    const Router = useRouter();
     const handleSignIn = () => {
         // Implement sign in logic here
-        router.push('/auth');
+        Router.push('/auth');
       };
     
       const handleRegister = () => {
