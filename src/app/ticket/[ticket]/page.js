@@ -1,5 +1,6 @@
 const getData = async (code) => {
-    const res = await fetch(`https://easy-lime-seal-toga.cyclic.app/airlines/flight/${code}`)
+    console.log(code)
+    const res = await fetch(`https://gorgeous-bass-toga.cyclic.app/airlines/flight/${code}`)
   
     if(!res.ok){
         throw new Error("Failed get data")
@@ -15,7 +16,7 @@ const getData = async (code) => {
     return (
       <main className="flex min-h-screen flex-col items-center justify-center p-24">
               <p>ticket : {params?.ticket ?? "-"}</p>
-              <p>ticket : {data?.name ?? "-"}</p>
+              <p>ticket : {data?.data.name ?? "-"}</p>
       </main>
     );
   }

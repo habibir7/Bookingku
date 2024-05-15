@@ -167,8 +167,8 @@ export default async function Ticket() {
                     </div>
             {data.data ? data.data?.map(item => {
                             return (
-                                <Link
-                                    href={`/dashboard/ticket/${item?.code}`}
+                                <div
+                                    href={`/ticket/${item?.code}`}
                                     key={item.code}
                                     className=" rounded mt-10 w-full px-10 flex flex-col py-5 space-y-6 bg-white hover:bg-slate-300 hover:transition-all hover:duration-200 hover:ease-in"
                                 >
@@ -230,9 +230,12 @@ export default async function Ticket() {
                                                         /pax
                                                     </span>
                                                 </h1>
+                                                <Link
+                                                href={`/ticket/${item?.code}`}>
                                                 <button className="text-white rounded-lg shadow-xl font-bold bg-[#2395FF] px-10 py-3">
                                                     Select
                                                 </button>
+                                                </Link>
                                             </div>
                                         </div>
                                     </div>
@@ -240,7 +243,7 @@ export default async function Ticket() {
                                         <h1>View Details</h1>
                                         <IoIosArrowDown />
                                     </div>
-                                </Link>);
+                                </div>);
                         }) : null}
     </div>
     </div>

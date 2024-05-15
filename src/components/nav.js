@@ -34,7 +34,7 @@ export function Nav() {
           {/* Find Ticket and My Booking Links */}
           <div className="flex items-center">
             <div className="ml-4">
-              <Link href="/dashboard/ticket" className="text-black relative inline-block">
+              <Link href="/ticket" className="text-black relative inline-block">
                 
                   Find Ticket
                   <div className="h-1 w-8 bg-blue-400 absolute bottom-0 left-0 ms-6"></div>
@@ -57,7 +57,7 @@ export function Nav() {
               <Link href="/notifications" className=" mx-4">
                   <BellIcon className="h-8 w-8" />
               </Link>
-              <Link href="/profile" className=" mx-4">
+              <Link href="/auth" className=" mx-4">
                   <img src="/profile.png" className="h-8 w-8" />
               </Link>
             </div>

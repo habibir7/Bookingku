@@ -4,7 +4,7 @@ export const Footer = () => {
   return (
     <footer className="bg-white text-black p-14">
       <div className="max-w-7xl mx-auto px-1">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Logo with Description */}
           <div>
             <img src="/logo.png" alt="Footer Logo" className="h-10 mb-4" />

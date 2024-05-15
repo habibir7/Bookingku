@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
-
 export default function auth() {
     return (
+      <>
+      <p className="text-4xl">Login</p>
         <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
@@ -29,16 +30,19 @@ export default function auth() {
           <p className="text-red-500 text-xs italic">Please choose a password.</p>
         </div>
         <div className="flex items-center justify-between">
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            type="button"
-          >
-            Sign In
-          </button>
+          <Link href={'/'} className="w-full">
+            <button type="submit" class="w-full text-[#FFFFFF] bg-[#4F46E5] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-6">Sign in</button>
+          </Link>
+        </div>
+        <div className="flex justify-between">
+          <Link href="/auth/forgotpassword" legacyBehavior>
+                <a className="text-blue-500 hover:text-blue-700">Forgot Password ?</a>
+            </Link>
           <Link href="/auth/register" legacyBehavior>
                 <a className="text-blue-500 hover:text-blue-700">Sign up here</a>
             </Link>
         </div>
       </form>
+      </>
     )
 }

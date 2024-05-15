@@ -12,7 +12,7 @@ export default function AuthLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-      <main className="container flex flex-col md:flex-row h-screen"> 
+      <main className="flex flex-col md:flex-row h-screen"> 
         <div className="flex items-center md:w-1/2 bg-sky-500 justify-center">
         <Image 
         src={'/thumbauth.png'}
