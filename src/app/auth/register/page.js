@@ -61,7 +61,7 @@ export default function Register(){
       .join('&');
     
     try{
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/auth/register`, {
+      const response = await fetch(`/api/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: formBody,
