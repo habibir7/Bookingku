@@ -1,4 +1,5 @@
 import { SiFacebook,SiTwitter,SiInstagram,SiYoutube } from "@icons-pack/react-simple-icons";
+import Image from "next/image";
 
 export const Footer = () => {
   return (
@@ -7,7 +8,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Logo with Description */}
           <div>
-            <img src="/logo.png" alt="Footer Logo" className="h-10 mb-4" />
+            <Image src="/logo.png" alt="Footer Logo" className="h-10 mb-4" />
             <p className="text-sm">Find your Flight and explore the world with us. We will take care of the rest</p>
             <p className="text-sm flex mt-10">© Ankasa. All Rights Reserved.</p>
           </div>
@@ -26,8 +27,8 @@ export const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Download Bookingku App</h4>
             <div className="flex flex-col">
-              <img src="/app-store-badge.png" alt="App Store" className="w-52" />
-              <img src="/play-store-badge.png" alt="Play Store" className="w-52 mt-1" />
+              <Image src="/app-store-badge.png" alt="App Store" className="w-52" />
+              <Image src="/play-store-badge.png" alt="Play Store" className="w-52 mt-1" />
             </div>
           </div>
           {/* Follow Us with Social Media Icons */}

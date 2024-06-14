@@ -1,26 +1,47 @@
-"use client";
-
-import { usePathname } from "next/navigation";
+import axios from 'axios';
 import Link from "next/link";
 import Image from "next/image";
+import { cookies } from 'next/headers';
 import { SearchIcon, MailIcon, BellIcon, UserCircleIcon } from '@heroicons/react/outline';
 
-export function Nav() {
-    const pathname = usePathname();
+const getData = async () => {
+  const allCookies = cookies();
+  const cookie = allCookies.get('access-token')?.value;
 
-    return (
-    <nav className="bg-white p-14">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-center">
-            {/* Logo and Website Name */}
-            <div className="flex items-center">
-              <Link href="/">
-                  <img src="/logo.png" alt="Logo" className="h-8" />
-              </Link>
-            </div>
+  if(cookie){
+    try {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/users/detail`, {
+        headers: {
+          Authorization: `Bearer ${cookie}`,
+        },
+      });
   
-            {/* Search Bar */}
-            <div className="relative flex items-center">
+      console.log(res.data);
+      return res.data.data;
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      return null;
+    }
+  }
+  
+}
+
+export async function Nav() {
+  const data = await getData();
+
+  return (
+    <nav className="bg-white p-14">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex justify-between items-center">
+          {/* Logo and Website Name */}
+          <div className="flex items-center">
+            <Link href="/">
+              <Image src="/logo.png" alt="Logo" className="h-8" />
+            </Link>
+          </div>
+
+          {/* Search Bar */}
+          <div className="relative flex items-center">
             <span className="absolute left-3 top-1/2 transform -translate-y-1/2">
               <SearchIcon className="h-5 w-5 text-gray-400" />
             </span>
@@ -35,34 +56,41 @@ export function Nav() {
           <div className="flex items-center">
             <div className="ml-4">
               <Link href="/ticket" className="text-black relative inline-block">
-                
-                  Find Ticket
-                  <div className="h-1 w-8 bg-blue-400 absolute bottom-0 left-0 ms-6"></div>
-                
+                Find Ticket
+                <div className="h-1 w-8 bg-blue-400 absolute bottom-0 left-0 ms-6"></div>
               </Link>
             </div>
+          
             <div className="ml-4">
               <Link href="/my-booking" className="text-black relative inline-block">
-                  My Booking
-                  <div className="h-1 w-8 bg-blue-400 absolute bottom-0 left-0 ms-6"></div>
+                My Booking
+                <div className="h-1 w-8 bg-blue-400 absolute bottom-0 left-0 ms-6"></div>
               </Link>
             </div>
           </div>
-  
+          {data ? 
+          <>
             {/* Message, Notification, Profile Icons */}
             <div className="flex items-center">
-              <Link href="/messages" className=" mx-4"> 
-                  <MailIcon className="h-8 w-8" />
+              <Link href="/" className=" mx-4"> 
+                <MailIcon className="h-8 w-8" />
               </Link>
-              <Link href="/notifications" className=" mx-4">
-                  <BellIcon className="h-8 w-8" />
+              <Link href="/" className=" mx-4">
+                <BellIcon className="h-8 w-8" />
               </Link>
               <Link href="/auth" className=" mx-4">
-                  <img src="/profile.png" className="h-8 w-8" />
+                <Image src={data.photo ? data.photo : '/profile.png'} className="h-8 w-8" width={32} height={32} alt="" />
               </Link>
             </div>
-          </div>
+          </>
+          : 
+          <Link href={'/auth'}>
+            <button>
+              Sign In
+            </button>
+          </Link> }
         </div>
-      </nav>
-    );
+      </div>
+    </nav>
+  );
 }

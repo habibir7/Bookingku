@@ -4,7 +4,7 @@ import "../styles/globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Book Flight app",
+  title: "Bookingku",
 };
 
 export default function RootLayout({ children }) {
