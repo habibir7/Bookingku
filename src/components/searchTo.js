@@ -14,7 +14,7 @@ export function SearchTo() {
           <div className="flex justify-between">
             <div className="flex flex-row justify-items-start">
                 <div className="flex flex-col justify-center">
-                  <Image src="/searchlogo.png" alt="Logo" className="h-8 ml-20" />
+                  <Image src="/searchlogo.png" alt="Logo" className="h-8 ml-20" width={24} height={24}/>
                 </div>
                 <div className="flex flex-col ml-2">
                     <div className="flex flex-row justify-between">
