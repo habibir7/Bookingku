@@ -36,7 +36,7 @@ export async function Nav() {
           {/* Logo and Website Name */}
           <div className="flex items-center">
             <Link href="/">
-              <Image src="/logo.png" alt="Logo" className="h-8" />
+              <Image src="/logo.png" alt="Logo" className="h-8" width={200} height={40}/>
             </Link>
           </div>
 

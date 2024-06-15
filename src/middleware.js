@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 
-const protectedRoutes = ['/booking', '/[booking]'];
+const protectedRoutes = ['/booking', '/[booking]','/my-booking','[passes]'];
 const authRoutes = ['/auth']
 
 export default function middleware(req) {

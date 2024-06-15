@@ -14,7 +14,6 @@ export default function AuthLayout({ children }) {
   return (
     <ErrorBoundary fallback={<Error />}>
     <html lang="en">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
       <body className={inter.className}>
       <main className="flex flex-col md:flex-row h-screen"> 
         <div className="flex items-center md:w-1/2 bg-sky-500 justify-center">
